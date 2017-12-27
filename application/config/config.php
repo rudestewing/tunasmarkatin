@@ -35,7 +35,7 @@ $config['base_url'] = 'http://localhost/tunasmarkatin/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'Home';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
