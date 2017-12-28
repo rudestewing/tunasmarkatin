@@ -13,48 +13,6 @@ class Admin extends CI_Controller {
 		$this->load->view('layouts/layout', $data, FALSE);
 	}
 
-	
-
-	public function alumni()
-	{
-		$data = array(
-
-						'title' 	=>	'Almuni Page',
-						'isi'		=>	'admin/v_index' );
-
-		$this->load->view('layouts/layout', $data, FALSE);
-	}
-
-	public function siswa()
-	{
-		$data = array(
-
-						'title' 	=>	'Siswa Page',
-						'isi'		=>	'admin/v_index' );
-
-		$this->load->view('layouts/layout', $data, FALSE);
-	}
-
-	public function ekskul()
-	{
-		$data = array(
-
-						'title' 	=>	'Ekskul Page',
-						'isi'		=>	'admin/v_index' );
-
-		$this->load->view('layouts/layout', $data, FALSE);
-	}
-
-	public function kegiatan()
-	{
-		$data = array(
-
-						'title' 	=>	'Kegiatan Page',
-						'isi'		=>	'admin/v_index' );
-
-		$this->load->view('layouts/layout', $data, FALSE);
-	}
-
 
 }
 
