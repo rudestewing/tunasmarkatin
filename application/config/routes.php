@@ -54,3 +54,6 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
+$route['admin/kegiatan'] = 'admin/kegiatan/index';
+
+$route['admin/kegiatan/view/(:any)'] = 'admin/kegiatan/view/$1';
