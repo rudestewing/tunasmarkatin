@@ -24,9 +24,7 @@
     </section>
 
     <section class="content-header">
-        <a href="<?php echo base_url('admin/kegiatan/tambah')?>"> <button class="btn btn-primary"> Tambah Kegiatan<i class="glyphicon glyphicon-plus"></i> </button></a>
-        <!-- <button class="btn btn-primary" onclick="tambah_kegiatan()"> -->
-            
+        <a href="<?php echo base_url('admin/kegiatan/form_tambah')?>"> <button class="btn btn-primary"> Tambah Kegiatan<i class="glyphicon glyphicon-plus"></i> </button></a>
             Tambah Kegiatan Baru 
         </button>
         
@@ -48,21 +46,21 @@
                                     <table id="tabel-kegiatan" class="table table-bordered table-responsive dataTable" >
                                         <thead>
                                             <tr>
-                                                <th style="width: 5%;"> ID  </th>
-                                                <th style="width: 20%;"> Gambar </th>
-                                                <th style="width: 15%;"> Judul Kegiatan </th>
+                                                
+                                                <th style="width:5%;"> ID_Kegiatan </th>
+                                                <th style="width: 20%;"> Judul Kegiatan </th>
                                                 <!-- <th style="width: 30%;"> Deskripsi </th> -->
-                                                <th style="width: 15%;">Tanggal </th>
+                                                <th style="width: 10%;">Tanggal </th>
                                                 <th style="width: 10%;"> Aksi </th>
                                             </tr>
                                         </thead>
 
                                         <tfoot>
-                                            <th style="width: 5%;"> ID </th>
-                                            <th style="width: 20%;"> Gambar </th>
-                                            <th style="width: 15%;"> Judul Kegiatan </th>
+                                            
+                                            <th style="width:5%;"> ID_Kegiatan </th>
+                                            <th style="width: 20%;"> Judul Kegiatan </th>
                                             <!-- <th style="width: 30%;"> Deskripsi </th> -->
-                                            <th style="width: 15%;">Tanggal </th>
+                                            <th style="width: 10%;">Tanggal </th>
                                             <th style="width: 10%;"> Aksi </th>
                                         </tfoot>
                                     </table>
