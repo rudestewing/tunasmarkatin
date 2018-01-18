@@ -25,12 +25,11 @@
 
     <section class="content-header">
         <a href="<?php echo base_url('admin/kegiatan/form_tambah')?>"> <button class="btn btn-primary"> Tambah Kegiatan<i class="glyphicon glyphicon-plus"></i> </button></a>
-            Tambah Kegiatan Baru 
         </button>
         
         <button class="btn btn-default" onclick="reload_table()">
             <i class="glyphicon glyphicon-refresh"> </i>
-            Refresh
+            Refresh Tabel
         </button>
     
     </section>

@@ -30,14 +30,10 @@
     <?php
         if($this->session->flashdata('gagal')){?>
             <div class="alert alert-danger"> 
-
                 <?php $this->session->flashdata('gagal'); ?>
             </div> 
         <?php }
     ?>
-
-
-
 
     <?php 
     $session = $this->session->userdata('id_kegiatan');
@@ -92,7 +88,7 @@
                     <!-- <textarea name="deskripsi" id="deskripsi_kegiatan" class="ckeditor" cols="30" rows="10"
                     style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid rgb(221, 221, 221); padding: 10px;" placeholder="Tambahkan deskripsi kegiatan disini">    
                     </textarea> -->
-
+                    <span id="message_judul"> <?php echo form_error('deskripsi');?>  </span>
                     <!-- use wysihtml5 bootstrap -->
                     <textarea name="deskripsi" id="deskripsi_kegiatan" class="deskripsi_kegiatan_wysihtml5" cols="30" rows="10"
                     style="width: 100%; height: 300px; font-size: 14px; line-height: 18px; border: 1px solid rgb(221, 221, 221); padding: 10px;" placeholder="Tambahkan deskripsi kegiatan disini">

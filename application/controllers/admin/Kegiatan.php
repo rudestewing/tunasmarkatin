@@ -31,8 +31,8 @@ class Kegiatan extends CI_Controller {
 				//deklarasikan $sub_array menjadi array
 				$sub_array = array();
 					//meng-echo isi dari $sub_array
-					$sub_array['id_kegiatan'] 		= '<a href="'.base_url().'admin/kegiatan/view/'.$row->id_kegiatan.'">'.$row->id_kegiatan. '</a>';
-					$sub_array['judul'] 			= '<a href="'.base_url().'admin/kegiatan/view/'.$row->id_kegiatan.'"><h4>'.$row->judul. '<h4></a>';
+					$sub_array['id_kegiatan'] 		= '<a href="'.base_url().'admin/kegiatan/view/'.$row->id_kegiatan.'"><h5>'.$row->id_kegiatan. '</h5></a>';
+					$sub_array['judul'] 			= '<a href="'.base_url().'admin/kegiatan/view/'.$row->id_kegiatan.'"><h5>'.$row->judul. '</h5></a>';
 					$sub_array['tanggal_kegiatan'] 	= $row->tanggal_kegiatan;
 					$sub_array['action'] 			= '<a target="blank" class="btn btn-sm btn-danger" href="javascript:void(0)" title="Edit" onclick="hapus_kegiatan('."'".$row->id_kegiatan."'".')"><i class="fa fa-trash"></i> Hapus </a>';
 				
@@ -52,7 +52,7 @@ class Kegiatan extends CI_Controller {
 
 	public function form_tambah()
 	{
-		$this->session->unset_userdata('id_kegiatan');
+		// $this->session->unset_userdata('id_kegiatan');
 		$data = array(	
 			'title' 	=>	'Guru & Staff Page',
 			'isi'		=>	'admin/kegiatan/v_kegiatan_tambah' 
@@ -61,113 +61,6 @@ class Kegiatan extends CI_Controller {
 		$this->load->helper('form'); 
 	}
 
-	public function tambahssssssssssss()
-	{
-		  
-		$this->load->helper('form');
-		$this->load->library('form_validation');
-		
-		$v = $this->form_validation;
-		$v->set_rules('judul','Judul Kegiatan','trim|required|min_length[8]|max_length[255]',array(
-			'required'=>'judul kegiatan harus di isi',
-			'min_length'=>'minimal karakter 8 karakter',
-			'max_length'=>'maksimal 32 karakter'
-		));
-		$v->set_rules('deskripsi','Deskripsi Kegiatan','trim|required|min_length[50]',array(
-			'required'=>'Deskripsi kegiatan harus di isi',
-			'min_length'=>'Deskripsi minimal 50 karakter'
-		));
-		$v->set_rules('tanggal_kegiatan','Tanggal Kegiatan','trim|required',array(
-			'required'=>'Tanggal kegiatan harus di isi'
-		));
-		
-		
-		if($this->form_validation->run()===FALSE )
-		{
-			$validator['status'] = "false";
-			foreach( $_POST as $key => $value )
-			{
-				$validator['msg'][$key] = form_error($key);
-			}
-			echo json_encode($validator);
-			$data = array(	
-				'title' 	=>	'Guru & Staff Page',
-				'isi'		=>	'admin/kegiatan/v_kegiatan_tambah' 
-			);
-			$this->load->view('layouts/layout', $data);	
-			$this->load->helper('form');	
-		
-		} 
-		else 
-		{
-			if($_FILES['gambar']['name'])
-			{
-				$config = array(
-					'upload_path'	=> './assets-admin/gambar/kegiatan/',
-					'allowed_types' => 'jpg|png',
-					'max_size'		=> '5000'
-					);
-				$this->load->library('upload',$config);
-				
-				$id_kegiatan_terakhir= $this->m_kegiatan->cek_id();
-				$last_id 	=  $id_kegiatan_terakhir['max_id'];
-				$char		= "keg";
-				$nourut		= (int) substr($last_id,3,5);
-				$nourut ++;
-				$id_baru	= $char.sprintf("%05s",$nourut);
-
-				$judul 				= $this->input->post('judul');
-				$deskripsi 			= $this->input->post('deskripsi');
-				$tanggal			= $this->input->post('tanggal_kegiatan');
-				
-				$date 				= date_create($tanggal); 
-				$tanggal_kegiatan 	= date_format($date,'Y-m-d');
-				$tanggal_buat		= date('Y-M-d');
-				$data_baru = array(
-					'id_kegiatan'		=> $id_baru,
-					'judul'				=> $judul,
-					'deskripsi'			=> $deskripsi,
-					'tanggal_kegiatan' 	=> $tanggal_kegiatan,				
-					'tanggal_buat'		=> $tanggal_buat
-					);
-
-				$this->m_kegiatan->tambah_data($data_baru);
-				$session_kegiatan = array(
-					'id_kegiatan'	=> $id_baru 	
-				);
-				
-
-
-				$this->session->set_userdata($session_kegiatan);
-				
-				if($this->upload->do_upload('gambar'))
-				{
-					$gambar				= $this->upload->data();
-					$data_gambar = array(
-						'id_kegiatan' => $this->session->userdata('id_kegiatan'),
-						'gambar'	  => $gambar['file_name']
-					);
-						
-					$validator_upload['status']='true';
-					$this->m_kegiatan->upload_gambar($data_gambar);
-					echo json_encode($validator_upload);				
-				} 
-				else 
-				{
-					$validator_upload['status']='false';
-					$validator_upload['msg_upload']='gagal upload';
-					$this->m_kegiatan->upload_gambar($data_gambar);
-					echo json_encode($validator_upload);		
-				}
-			} 
-			else 
-			{
-				$validator_upload['status']= 'false';
-				$validator_upload['msg_upload'] = 'gambar kosong nih';
-				echo json_encode($validator_upload);
-			}
-		}
-	}
 
 
 
@@ -211,17 +104,17 @@ class Kegiatan extends CI_Controller {
 			foreach( $_POST as $key => $value ){
 				$validator['msg'][$key] = form_error($key);
 			}
-			echo json_encode($validator);
-
+			// echo json_encode($validator);
+			$this->load->helper('form'); 
+			
 			$data = array(	
 				'title' 	=>	'Guru & Staff Page',
 				'isi'		=>	'admin/kegiatan/v_kegiatan_tambah' 
 			);
+			
+			$this->session->set_flashdata('gagal','data gagal di input nih!');
 			$this->load->view('layouts/layout', $data);	
-			$this->load->helper('form'); 
-
-
-
+			
 
 		} else {
 			$id_kegiatan_terakhir= $this->m_kegiatan->cek_id();
@@ -451,7 +344,6 @@ class Kegiatan extends CI_Controller {
 		}
 	}
 }
-
 
 
 

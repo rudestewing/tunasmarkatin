@@ -8,7 +8,7 @@ $(document).ready(function(){
       "ajax":{
           url:site_URL + "admin/kegiatan/fetch_kegiatan",
           type:"POST",
-          dataType:"json"
+          dataType:"json",
       },
       "columns":[
           {"data":"id_kegiatan"},
