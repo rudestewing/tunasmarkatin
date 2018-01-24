@@ -5,6 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>AdminTM | <?php echo $title ?></title>
   <!-- Tell the browser to be responsive to screen width -->
+
+  <!-- core CSS -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?php echo base_url() ?>assets-admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -15,6 +17,8 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url() ?>assets-admin/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
+
+  other CSS
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url() ?>assets-admin/dist/css/skins/_all-skins.min.css">
   <!-- Morris chart -->
@@ -35,8 +39,16 @@
     }
   </style>
   
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets-admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+
+
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+</body>
+
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
