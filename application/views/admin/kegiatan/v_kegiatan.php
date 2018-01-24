@@ -4,9 +4,9 @@
 
   #tabel-kegiatan tbody td { 
     max-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
    
     /* max-width: 0;
     overflow: hidden;
@@ -45,7 +45,6 @@
                                     <table id="tabel-kegiatan" class="table table-bordered table-responsive dataTable" >
                                         <thead>
                                             <tr>
-                                                
                                                 <th style="width:5%;"> ID_Kegiatan </th>
                                                 <th style="width: 20%;"> Judul Kegiatan </th>
                                                 <!-- <th style="width: 30%;"> Deskripsi </th> -->

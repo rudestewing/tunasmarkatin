@@ -159,6 +159,15 @@ class M_kegiatan extends CI_Model{
         $this->db->where('id_kegiatan',$id_kegiatan);
         $this->db->delete('kegiatan_gambar');
     }
+
+
+    public function get_all_kegiatan()
+    {
+        //return result_array();
+    }
+
+
+
 }
 
 

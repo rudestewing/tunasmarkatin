@@ -4,6 +4,8 @@ $(document).ready(function(){
       "paging":true,
       "processing":true,
       "serverSide":true,
+      "scrollY":"250px",
+      "scrollCollapse":true,
       "order":[],
       "ajax":{
           url:site_URL + "admin/kegiatan/fetch_kegiatan",
@@ -155,7 +157,7 @@ function reload_table_gambar()
 
 function hapus_gambar($id)
 {
-    if(confirm('Yakin mau di hapus?')){
+    // if(confirm('Yakin mau di hapus?')){
       $.ajax({
         url : site_URL + 'admin/kegiatan/hapus_gambar/' +  $id,  
         type: "POST",
@@ -167,7 +169,7 @@ function hapus_gambar($id)
           }
         }
       });
-    }
+    // }
 }
 
 function hapus_kegiatan(id_kegiatan)

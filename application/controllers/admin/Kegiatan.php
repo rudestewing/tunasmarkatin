@@ -22,7 +22,6 @@ class Kegiatan extends CI_Controller {
 	{
 			$this->load->model("m_kegiatan");
 
-			
 			$get_all_kegiatan = $this->m_kegiatan->get_datatables();
 			
 			$no=1;
