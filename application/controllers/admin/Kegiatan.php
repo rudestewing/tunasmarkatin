@@ -60,8 +60,6 @@ class Kegiatan extends CI_Controller {
 		$this->load->helper('form'); 
 	}
 
-
-
 	public function tambah()
 	{
 		$this->load->helper('form');
@@ -165,7 +163,11 @@ class Kegiatan extends CI_Controller {
 				$sub_array['no'] 			= $no;
 				$sub_array['id_kegiatan']	= $row->id_kegiatan;
 				$sub_array['gambar'] 		= '<img src="' .base_url().'assets-admin/gambar/kegiatan/'. $row->gambar . '"  class="img-thumbnail"  style="height:200px; max-width:100%;"  >';
-				$sub_array['action']		= '<a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Edit" onclick="hapus_gambar('."'".$row->id."'".')"><i class="fa fa-trash"></i> Hapus </a>';	
+				
+				$sub_array['action']		= '<a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Edit" onclick="hapus_gambar('."'".$row->id."'".","."'".$row->gambar."'".')"><i class="fa fa-trash"></i> Hapus </a>';	
+
+				// $sub_array['action']		= '<a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Edit" onclick="hapus_gambar('.$row->id.')"><i class="fa fa-trash"></i> Hapus </a>';	
+
 				$data_kegiatan_gambar[] = $sub_array;
 				$no++;
 			}
@@ -184,7 +186,7 @@ class Kegiatan extends CI_Controller {
 			'upload_path'	=> './assets-admin/gambar/kegiatan/',
 			'allowed_types' => 'jpg|png|gif',
 			'max_size'		=> '5000'
-			);
+		);
 
 		if(isset($_FILES['gambar']['name'])){
 			$this->load->library('upload',$config);
@@ -233,8 +235,12 @@ class Kegiatan extends CI_Controller {
 
 
 
-	public function hapus_gambar($id)
+	public function hapus_gambar($id,$gambar)
 	{
+		$foto_lama = base_url('assets-admin/gambar/kegiatan/'.$gambar);
+		if(count($foto_lama) > 0 ){
+			unlink('assets-admin/gambar/kegiatan/'.$gambar);   
+		}
 		$this->m_kegiatan->hapus_data_gambar($id);
 		echo json_encode(array('status'=>'true'));
 	}
@@ -262,6 +268,7 @@ class Kegiatan extends CI_Controller {
 
 	public function edit($id_kegiatan)
 	{
+		
 		$kegiatan = $this->m_kegiatan->get_single_data($id_kegiatan);
 		$session_edit = array('id_kegiatan'=> $id_kegiatan);
 

@@ -32,7 +32,7 @@ class M_kegiatan extends CI_Model{
     function get_datatables()
     {
         $this->make_query();
-        if($_POST['length'] != -1){
+        if($_POST['length'] != -1 ){
             $this->db->limit($_POST['length'],$_POST['start']);
         }        
         $query = $this->db->get();

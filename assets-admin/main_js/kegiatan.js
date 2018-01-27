@@ -155,11 +155,12 @@ function reload_table_gambar()
 }
 
 
-function hapus_gambar($id)
+function hapus_gambar(id,gambar)
 {
-    // if(confirm('Yakin mau di hapus?')){
+  
+    if(confirm('Yakin mau di hapus?')){
       $.ajax({
-        url : site_URL + 'admin/kegiatan/hapus_gambar/' +  $id,  
+        url : site_URL + 'admin/kegiatan/hapus_gambar/' +  id + '/' + gambar,  
         type: "POST",
         dataType:"json",
         success:function(data){
@@ -169,7 +170,7 @@ function hapus_gambar($id)
           }
         }
       });
-    // }
+    }
 }
 
 function hapus_kegiatan(id_kegiatan)
