@@ -1,50 +1,53 @@
+<style>
+  #li-navigation:hover{
+    background-color:grey;
+  }
+
+
+
+</style>
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-      <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-          <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form>
-      <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
+        <li class="active treeview menu-open">
           <a href="#">
-            <span> User </span>
+            <i class="fa fa-align-justify"></i> <span>Navigation</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
           </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <span>Guru</span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="pages/widgets.html">
-            <span>Siswa</span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <span>Alumni</span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <span>Ekskul</span>
-          </a>
-        </li>
-       
-        <li class="treeview">
-          <a href="#">
-            <span>Kegiatan</span>
-          </a>
+
+          <ul class="treeview-menu">
+            
+            <li id="li-navigation"class="active">
+              <a href="<?php echo site_url('admin/user'); ?>">
+              <i class="fa fa-user-o"></i> User </a>
+            </li>
+            <li id="li-navigation"class="active">
+              <a href="<?php echo site_url('admin/siswa'); ?>">
+              <i class="fa fa-user-o"></i> Siswa </a>
+            </li>
+            <li id="li-navigation"class="active">
+              <a href="<?php echo site_url('admin/guru'); ?>">
+              <i class="fa fa-user-o"></i> Guru </a>
+            </li>
+            <li id="li-navigation"class="active">
+              <a href="<?php echo site_url('admin/alumni'); ?>">
+              <i class="fa fa-male"></i> Alumni </a>
+            </li>
+            <li id="li-navigation"class="active">
+              <a href="<?php echo site_url('admin/ekskul'); ?>">
+              <i class="fa fa-futbol-o"></i> Ekskul </a>
+            </li>
+            <li id="li-navigation"class="active">
+              <a href="<?php echo site_url('admin/kegiatan'); ?>">
+              <i class="fa fa-check"></i> Kegiatan </a>
+            </li>
+
+
+          </ul>
         </li>
         
     </section>
